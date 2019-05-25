@@ -1,0 +1,42 @@
+// ==UserScript==
+// @name         New Userscript
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        https://gci.kg-66.com/agingame/v181/index.jsp
+// @grant        none
+// ==/UserScript==
+
+(function () {
+  'use strict';
+
+  const raws_symbol = Symbol("raw");
+  function getraw(source, name) {
+
+    if (source[raws_symbol]) {
+      source[raws_symbol] = {}
+    }
+    source[raws_symbol][name] = source[raws_symbol][name] || source[name];
+    return source[raws_symbol][name];
+  }
+
+  function hook(source, name, cb, construct) {
+    const raw = getraw(source, name);
+
+    if (construct) {
+      source[name] = new Proxy(raw, {
+        construct(target, args) {
+          return cb(this, raw, args);
+        }
+      })
+    } else {
+      source[name] = function (...args) {
+        return cb(this, raw, args);
+      }
+    }
+  }
+  window.hook = hook
+
+  // Your code here...
+})();
