@@ -5,7 +5,7 @@
 // @version      0.7
 // @description  try to take over the world!
 // @author       You
-// @match        *
+// @match        http://*/*
 // @grant        none
 // ==/UserScript==
 
