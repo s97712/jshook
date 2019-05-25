@@ -15,7 +15,7 @@
   const raws_symbol = Symbol("raw");
   function getraw(source, name) {
 
-    if (source[raws_symbol]) {
+    if (!source[raws_symbol]) {
       source[raws_symbol] = {}
     }
     source[raws_symbol][name] = source[raws_symbol][name] || source[name];
