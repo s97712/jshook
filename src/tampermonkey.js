@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         New Userscript
+// @name         jshook
 // @namespace    http://tampermonkey.net/
 // @updateURL    https://raw.githubusercontent.com/s97712/jshook/master/src/tampermonkey.js
 // @version      0.4
