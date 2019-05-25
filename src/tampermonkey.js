@@ -2,7 +2,7 @@
 // @name         jshook
 // @namespace    http://tampermonkey.net/
 // @updateURL    https://raw.githubusercontent.com/s97712/jshook/master/src/tampermonkey.js
-// @version      0.5
+// @version      0.6
 // @description  try to take over the world!
 // @author       You
 // @match        *
@@ -22,22 +22,42 @@
     return source[raws_symbol][name];
   }
 
-  function hook(source, name, cb, construct) {
-    const raw = getraw(source, name);
 
-    if (construct) {
-      source[name] = new Proxy(raw, {
-        construct(target, args) {
-          return cb(this, raw, args);
-        }
-      })
-    } else {
-      source[name] = function (...args) {
-        return cb(this, raw, args);
+  function hookConstruct(source, name, cb) {
+    const raw = getraw(source, name);
+    source[name] = new Proxy(raw, {
+      construct(target, args) {
+        return cb(this, target, args);
       }
+    })
+  }
+
+  function hookFunction(source, name, cb) {
+    const raw = getraw(source, name);
+    source[name] = function (...args) {
+      return cb(this, raw, args);
     }
   }
-  window.hook = hook
+
+  function hookProperty(source, name, get, set) {
+    const raw = getraw(source, name);
+    Object.defineProperty(source, name, {
+      get() {
+        return get(raw);
+      },
+      set(val) {
+        raw = set ?set(val, raw) :val;
+      },
+      writable: true,
+      configurable: true
+    })
+  }
+
+  window.hook = {
+    construct: hookConstruct,
+    method: hookFunction,
+    property: hookProperty
+  }
 
   // Your code here...
 })();
