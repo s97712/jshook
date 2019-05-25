@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         New Userscript
 // @namespace    http://tampermonkey.net/
-// @updateUrl    https://github.com/s97712/jshook/blob/master/src/tampermonkey.js
+// @updateURL    https://raw.githubusercontent.com/s97712/jshook/master/src/tampermonkey.js
 // @version      0.2
 // @description  try to take over the world!
 // @author       You
