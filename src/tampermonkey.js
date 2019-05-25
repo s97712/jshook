@@ -5,7 +5,7 @@
 // @version      0.2
 // @description  try to take over the world!
 // @author       You
-// @match        https://gci.kg-66.com/agingame/v181/index.jsp
+// @match        *
 // @grant        none
 // ==/UserScript==
 
