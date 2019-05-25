@@ -2,7 +2,7 @@
 // @name         jshook
 // @namespace    http://tampermonkey.net/
 // @updateURL    https://raw.githubusercontent.com/s97712/jshook/master/src/tampermonkey.js
-// @version      0.6
+// @version      0.7
 // @description  try to take over the world!
 // @author       You
 // @match        *
@@ -40,7 +40,7 @@
   }
 
   function hookProperty(source, name, get, set) {
-    const raw = getraw(source, name);
+    let raw = source[name];
     Object.defineProperty(source, name, {
       get() {
         return get(raw);
