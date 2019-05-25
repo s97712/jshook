@@ -2,7 +2,7 @@
 // @name         jshook
 // @namespace    http://tampermonkey.net/
 // @updateURL    https://raw.githubusercontent.com/s97712/jshook/master/src/tampermonkey.js
-// @version      0.10
+// @version      0.11
 // @description  try to take over the world!
 // @author       You
 // @match        https://*/*
@@ -48,7 +48,6 @@
       set(val) {
         raw = set ?set(val, raw) :val;
       },
-      writable: true,
       configurable: true
     })
   }
