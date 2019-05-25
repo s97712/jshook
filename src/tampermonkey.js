@@ -2,7 +2,7 @@
 // @name         New Userscript
 // @namespace    http://tampermonkey.net/
 // @updateURL    https://raw.githubusercontent.com/s97712/jshook/master/src/tampermonkey.js
-// @version      0.2
+// @version      0.3
 // @description  try to take over the world!
 // @author       You
 // @match        *
