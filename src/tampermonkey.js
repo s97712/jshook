@@ -1,7 +1,8 @@
 // ==UserScript==
 // @name         New Userscript
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @updateUrl    https://github.com/s97712/jshook/blob/master/src/tampermonkey.js
+// @version      0.2
 // @description  try to take over the world!
 // @author       You
 // @match        https://gci.kg-66.com/agingame/v181/index.jsp
